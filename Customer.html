@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách hàng - Cat Bracelet</title>
+    <link rel="stylesheet" href="Customer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <i class="fas fa-arrow-left" id="backBtn"></i>
+                <span>Quay lại</span>
+            </div>
+            <div class="header-right">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/logo_Cat.jpg" alt="logo"></div>
+                    <span class="logo-text">CAT BRACELET</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1 class="welcome-title">Chào mừng bạn!</h1>
+                <p class="welcome-subtitle">Trang quản lý dành cho khách hàng</p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2 class="section-title">Chức năng nhanh</h2>
+                <div class="action-grid">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3 class="action-title">Sản phẩm</h3>
+                        <p class="action-desc">Xem danh sách sản phẩm</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="action-title">Giỏ hàng</h3>
+                        <p class="action-desc">Xem giỏ hàng của bạn</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3 class="action-title">Đơn hàng</h3>
+                        <p class="action-desc">Theo dõi đơn hàng</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3 class="action-title">Tài khoản</h3>
+                        <p class="action-desc">Thông tin tài khoản</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="recent-orders">
+                <h2 class="section-title">Đơn hàng gần đây</h2>
+                <div class="orders-list">
+                    <div class="order-item">
+                        <div class="order-info">
+                            <div class="order-id">#ORD001</div>
+                            <div class="order-date">12/01/2024</div>
+                        </div>
+                        <div class="order-status status-pending">Đang xử lý</div>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-info">
+                            <div class="order-id">#ORD002</div>
+                            <div class="order-date">10/01/2024</div>
+                        </div>
+                        <div class="order-status status-completed">Hoàn thành</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Nút quay lại
+        document.getElementById('backBtn').parentElement.addEventListener('click', function() {
+            window.location.href = 'Role_Selection.html';
+        });
+    </script>
+</body>
+</html>

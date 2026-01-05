@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhân viên - Cat Bracelet</title>
+    <link rel="stylesheet" href="Customer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <i class="fas fa-arrow-left" id="backBtn"></i>
+                <span>Quay lại</span>
+            </div>
+            <div class="header-right">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/logo_Cat.jpg" alt="logo"></div>
+                    <span class="logo-text">CAT BRACELET</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="user-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h1 class="welcome-title">Chào mừng nhân viên!</h1>
+                <p class="welcome-subtitle">Trang quản lý dành cho nhân viên</p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2 class="section-title">Chức năng nhanh</h2>
+                <div class="action-grid">
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3 class="action-title">Đơn hàng</h3>
+                        <p class="action-desc">Quản lý đơn hàng</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="action-title">Khách hàng</h3>
+                        <p class="action-desc">Quản lý khách hàng</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3 class="action-title">Sản phẩm</h3>
+                        <p class="action-desc">Quản lý sản phẩm</p>
+                    </div>
+                    <div class="action-card">
+                        <div class="action-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="action-title">Báo cáo</h3>
+                        <p class="action-desc">Xem báo cáo bán hàng</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Nút quay lại
+        document.getElementById('backBtn').parentElement.addEventListener('click', function() {
+            window.location.href = 'Role_Selection.html';
+        });
+    </script>
+</body>
+</html>

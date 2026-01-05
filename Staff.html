@@ -3,38 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GemStore Admin - Dashboard</title>
+  <title>Nhân viên - Cat Bracelet</title>
   <style>
     :root{
-      --bg: #0f0b0c;
-      --panel: #171012;
-      --panel-2: #1f1518;
-      --text: #f3eef0;
-      --muted: #c9b8bd;
-      --line: rgba(255,255,255,.08);
+      --bg: #ffffff;
+      --panel: #f9fafb;
+      --panel-2: #f3f4f6;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: rgba(0,0,0,.08);
 
-      /* đỏ đô */
-      --burgundy: #7a1021;
-      --burgundy-2: #a0142a;
-      --burgundy-3: #c01833;
+      /* đỏ */
+      --burgundy: #dc2626;
+      --burgundy-2: #b91c1c;
+      --burgundy-3: #991b1b;
 
-      --good: #2ecc71;
-      --warn: #f1c40f;
-      --bad: #e74c3c;
+      --good: #10b981;
+      --warn: #f59e0b;
+      --bad: #ef4444;
 
       --radius: 16px;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --shadow-soft: 0 10px 30px rgba(0,0,0,.28);
-      --ring: 0 0 0 3px rgba(192,24,51,.22);
+      --shadow: 0 18px 50px rgba(0,0,0,.1);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.08);
+      --ring: 0 0 0 3px rgba(220,38,38,.1);
     }
 
     *{ box-sizing:border-box; }
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1200px 700px at 20% 0%, rgba(192,24,51,.22), transparent 55%),
-                  radial-gradient(900px 600px at 90% 10%, rgba(122,16,33,.18), transparent 55%),
-                  var(--bg);
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+      min-height: 100vh;
       color:var(--text);
     }
 
@@ -45,6 +44,10 @@
       display:grid;
       grid-template-columns: 280px 1fr;
       min-height:100vh;
+      background: var(--bg);
+      max-width: 1600px;
+      margin: 0 auto;
+      box-shadow: 0 0 0 1px rgba(0,0,0,.05);
     }
 
     /* Sidebar */
@@ -53,8 +56,8 @@
       height:100vh;
       border-right:1px solid var(--line);
       padding:18px 14px;
-      background: linear-gradient(180deg, rgba(23,16,18,.92), rgba(15,11,12,.92));
-      backdrop-filter: blur(8px);
+      background: #ffffff;
+      overflow-y: auto;
     }
     .brand{
       display:flex; align-items:center; gap:12px;
@@ -65,11 +68,12 @@
     .logo{
       width:38px; height:38px;
       border-radius:12px;
-      background: linear-gradient(135deg, var(--burgundy-3), var(--burgundy));
-      box-shadow: 0 12px 24px rgba(192,24,51,.2);
+      background: linear-gradient(135deg, var(--burgundy), var(--burgundy-2));
+      box-shadow: 0 4px 12px rgba(220,38,38,.3);
       display:grid; place-items:center;
       font-weight:800;
       letter-spacing:.5px;
+      color: #ffffff;
     }
     .brand h1{
       font-size:14px; margin:0;
@@ -89,20 +93,20 @@
       border:1px solid transparent;
     }
     .nav a:hover{
-      background: rgba(255,255,255,.04);
-      color: var(--text);
+      background: #fef2f2;
+      color: var(--burgundy);
     }
     .nav a.active{
-      background: linear-gradient(135deg, rgba(192,24,51,.20), rgba(122,16,33,.12));
-      border-color: rgba(192,24,51,.22);
-      color: var(--text);
-      box-shadow: inset 0 0 0 1px rgba(192,24,51,.10);
+      background: linear-gradient(135deg, #fef2f2, #fee2e2);
+      border-color: rgba(220,38,38,.2);
+      color: var(--burgundy);
+      box-shadow: inset 0 0 0 1px rgba(220,38,38,.1);
     }
     .nav .dot{
       width:10px; height:10px; border-radius:999px;
-      background: rgba(255,255,255,.18);
+      background: #d1d5db;
     }
-    .nav a.active .dot{ background: var(--burgundy-3); }
+    .nav a.active .dot{ background: var(--burgundy); }
 
     .sidebar-footer{
       position:absolute;
@@ -117,12 +121,12 @@
     .pill{
       padding:6px 10px;
       border-radius:999px;
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.08);
+      background: #fef2f2;
+      border:1px solid #fee2e2;
       color: var(--muted);
       white-space:nowrap;
     }
-    .pill strong{ color: var(--text); font-weight:700; }
+    .pill strong{ color: var(--burgundy); font-weight:700; }
 
     /* Main */
     .main{
@@ -156,12 +160,13 @@
       width:100%;
       padding:10px 12px 10px 38px;
       border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border:1px solid #e5e7eb;
+      background: #ffffff;
       outline:none;
+      color: var(--text);
     }
     .search input:focus{
-      border-color: rgba(192,24,51,.4);
+      border-color: var(--burgundy);
       box-shadow: var(--ring);
     }
     .search svg{
@@ -172,18 +177,24 @@
     }
 
     .btn{
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border:1px solid #e5e7eb;
+      background: #ffffff;
       padding:10px 12px;
       border-radius:12px;
       cursor:pointer;
       transition: .15s ease;
+      color: var(--text);
     }
-    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); }
+    .btn:hover{ transform: translateY(-1px); background: #f9fafb; border-color: #d1d5db; }
     .btn.primary{
-      border-color: rgba(192,24,51,.35);
-      background: linear-gradient(135deg, rgba(192,24,51,.28), rgba(122,16,33,.18));
-      box-shadow: 0 12px 28px rgba(192,24,51,.12);
+      border-color: var(--burgundy);
+      background: linear-gradient(135deg, var(--burgundy), var(--burgundy-2));
+      box-shadow: 0 4px 12px rgba(220,38,38,.3);
+      color: #ffffff;
+    }
+    .btn.primary:hover{
+      background: linear-gradient(135deg, var(--burgundy-2), var(--burgundy-3));
+      box-shadow: 0 6px 16px rgba(220,38,38,.4);
     }
 
     /* Sections */
@@ -195,8 +206,8 @@
       grid-template-columns: repeat(12, 1fr);
     }
     .card{
-      background: linear-gradient(180deg, rgba(31,21,24,.92), rgba(23,16,18,.92));
-      border:1px solid rgba(255,255,255,.08);
+      background: #ffffff;
+      border:1px solid #e5e7eb;
       border-radius: var(--radius);
       box-shadow: var(--shadow-soft);
       padding:14px;
@@ -208,7 +219,7 @@
       position:absolute;
       inset:-80px auto auto -80px;
       width:180px; height:180px;
-      background: radial-gradient(circle, rgba(192,24,51,.16), transparent 55%);
+      background: radial-gradient(circle, rgba(220,38,38,.08), transparent 55%);
       filter: blur(0px);
       pointer-events:none;
     }
@@ -229,12 +240,12 @@
       display:inline-flex; align-items:center; gap:8px;
       padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border:1px solid #e5e7eb;
+      background: #f9fafb;
       color:var(--muted);
       font-size:12px;
     }
-    .badge .b{ width:8px; height:8px; border-radius:999px; background: rgba(255,255,255,.18); }
+    .badge .b{ width:8px; height:8px; border-radius:999px; background: #d1d5db; }
     .badge.good .b{ background: var(--good); }
     .badge.warn .b{ background: var(--warn); }
     .badge.bad .b{ background: var(--bad); }
@@ -264,8 +275,8 @@
     .table-wrap{
       overflow:auto;
       border-radius: 14px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.02);
+      border:1px solid #e5e7eb;
+      background: #ffffff;
     }
     table{
       width:100%;
@@ -274,36 +285,36 @@
     }
     th, td{
       padding:12px 12px;
-      border-bottom:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid #e5e7eb;
       text-align:left;
       font-size:13px;
       vertical-align:middle;
     }
     th{
       position:sticky; top:0;
-      background: rgba(23,16,18,.92);
+      background: #ffffff;
       color: var(--muted);
       font-weight:600;
       letter-spacing:.2px;
       z-index:1;
     }
-    tr:hover td{ background: rgba(255,255,255,.03); }
+    tr:hover td{ background: #fef2f2; }
 
     .tag{
       display:inline-flex;
       align-items:center;
       padding:6px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border:1px solid #e5e7eb;
+      background: #f9fafb;
       color: var(--muted);
       font-size:12px;
       white-space:nowrap;
     }
-    .tag.primary{ border-color: rgba(192,24,51,.35); color: var(--text); }
-    .tag.good{ border-color: rgba(46,204,113,.35); color: var(--text); }
-    .tag.warn{ border-color: rgba(241,196,15,.35); color: var(--text); }
-    .tag.bad{ border-color: rgba(231,76,60,.35); color: var(--text); }
+    .tag.primary{ border-color: #fee2e2; background: #fef2f2; color: var(--burgundy); }
+    .tag.good{ border-color: #d1fae5; background: #ecfdf5; color: var(--good); }
+    .tag.warn{ border-color: #fef3c7; background: #fffbeb; color: var(--warn); }
+    .tag.bad{ border-color: #fee2e2; background: #fef2f2; color: var(--bad); }
 
     .row-actions{
       display:flex; gap:8px; align-items:center; justify-content:flex-end;
@@ -311,11 +322,12 @@
     .icon-btn{
       width:36px; height:36px;
       border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
+      border:1px solid #e5e7eb;
+      background: #ffffff;
       cursor:pointer;
+      color: var(--text);
     }
-    .icon-btn:hover{ background: rgba(255,255,255,.06); transform: translateY(-1px); }
+    .icon-btn:hover{ background: #fef2f2; border-color: #fee2e2; transform: translateY(-1px); }
 
     /* Layout lower grids */
     .lower{
@@ -348,10 +360,12 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="brand">
-        <div class="logo">G</div>
+        <div class="logo">
+          <img src="image/logo_Cat.jpg" alt="logo" style="width:100%; height:100%; object-fit:contain; border-radius:8px;">
+        </div>
         <div>
-          <h1>GemStore Admin</h1>
-          <small>Quản lý cửa hàng đá quý</small>
+          <h1>Cat Bracelet</h1>
+          <small>Trang quản lý nhân viên</small>
         </div>
       </div>
 
@@ -371,8 +385,8 @@
       </nav>
 
       <div class="sidebar-footer">
-        <div class="pill">Role: <strong>Admin</strong></div>
-        <div class="pill">Theme: <strong>Đỏ đô</strong></div>
+        <div class="pill">Role: <strong>Staff</strong></div>
+        <div class="pill">Theme: <strong>Đỏ</strong></div>
       </div>
     </aside>
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn vai trò - Cat Bracelet</title>
+    <link rel="stylesheet" href="Role_Selection.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <i class="fas fa-arrow-left" id="backBtn"></i>
+                <span>Quay lại</span>
+            </div>
+            <div class="header-right">
+                <div class="logo">
+                    <div class="logo-icon"><img src="image/logo_Cat.jpg" alt="logo"></div>
+                    <span class="logo-text">CAT BRACELET</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1 class="welcome-title">Chọn vai trò của bạn</h1>
+                <p class="welcome-subtitle">Vui lòng chọn vai trò để tiếp tục</p>
+            </div>
+
+            <!-- Role Selection -->
+            <div class="role-selection">
+                <div class="role-card" data-role="admin">
+                    <div class="role-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="role-title">Admin</h3>
+                    <p class="role-description">Quản lý hệ thống và toàn bộ chức năng</p>
+                    <div class="role-badge">Quản trị viên</div>
+                </div>
+
+                <div class="role-card" data-role="staff">
+                    <div class="role-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="role-title">Staff</h3>
+                    <p class="role-description">Quản lý đơn hàng và hỗ trợ khách hàng</p>
+                    <div class="role-badge">Nhân viên</div>
+                </div>
+
+                <div class="role-card active" data-role="customer">
+                    <div class="role-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="role-title">Customer</h3>
+                    <p class="role-description">Mua sắm và quản lý đơn hàng của bạn</p>
+                    <div class="role-badge">Khách hàng</div>
+                </div>
+            </div>
+
+            <!-- Continue Button -->
+            <button class="continue-btn" id="continueBtn">
+                <span>Tiếp tục</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </main>
+    </div>
+
+    <script>
+        let selectedRole = 'customer'; // Mặc định chọn customer
+
+        // Xử lý chọn role
+        const roleCards = document.querySelectorAll('.role-card');
+        roleCards.forEach(card => {
+            card.addEventListener('click', function() {
+                // Xóa active từ tất cả cards
+                roleCards.forEach(c => c.classList.remove('active'));
+                // Thêm active cho card được chọn
+                this.classList.add('active');
+                selectedRole = this.getAttribute('data-role');
+            });
+        });
+
+        // Nút quay lại
+        document.getElementById('backBtn').parentElement.addEventListener('click', function() {
+            window.location.href = 'UI_Login.html';
+        });
+
+        // Nút tiếp tục
+        document.getElementById('continueBtn').addEventListener('click', function() {
+            // Chuyển hướng đến trang tương ứng với role
+            switch(selectedRole) {
+                case 'admin':
+                    window.location.href = 'Admin.html';
+                    break;
+                case 'staff':
+                    window.location.href = 'Staff.html';
+                    break;
+                case 'customer':
+                    window.location.href = 'Customer.html';
+                    break;
+                default:
+                    alert('Vui lòng chọn một vai trò!');
+            }
+        });
+    </script>
+</body>
+</html>

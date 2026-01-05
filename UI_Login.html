@@ -99,10 +99,8 @@
 
             // Kiểm tra tài khoản và mật khẩu
             if (username === '123' && password === '123') {
-                // Đăng nhập thành công
-                alert('Đăng nhập thành công!');
-                // Có thể chuyển hướng đến trang khác ở đây
-                // window.location.href = 'dashboard.html';
+                // Đăng nhập thành công - chuyển đến trang chọn role
+                window.location.href = 'Role_Selection.html';
             } else {
                 // Hiển thị thông báo lỗi
                 errorMessage.textContent = 'Tài khoản hoặc mật khẩu không đúng!';
