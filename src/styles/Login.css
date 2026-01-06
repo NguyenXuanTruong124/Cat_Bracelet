@@ -1,269 +1,305 @@
-/* Base */
+/* ==========================================================================
+   LOGIN PAGE CSS (Đã khoanh vùng để tránh xung đột với Staff/Admin)
+   ========================================================================== */
+
+/* 1. CẤU TRÚC NỀN & TRANG */
 .page.login-page {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+  /* Nền đỏ gradient + pattern mờ */
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+    linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
   min-height: 100vh;
-  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 12px;
 }
 
-.container {
-  max-width: 100%;
+/* 2. HIỆU ỨNG KÍNH MỜ (GLASSMORPHISM) */
+.page.login-page .container {
+  width: 100%;
+  max-width: 460px;
   margin: 0 auto;
-  background-color: #ffffff;
-  min-height: 100vh;
-  position: relative;
+  
+  /* Tạo hiệu ứng kính */
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  
+  border-radius: 24px;
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    
+  overflow: hidden;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Header */
-.header {
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3. HEADER & LOGO (PHẦN QUAN TRỌNG NHẤT) */
+.page.login-page .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+  background-color: transparent; /* Nền trong suốt */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.header-left {
+/* Nút quay lại */
+.page.login-page .header-left {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #333;
-  font-size: 16px;
+  color: #4b5563;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: all 0.2s;
 }
 
-.header-left:hover {
+.page.login-page .header-left:hover {
   color: #dc2626;
+  transform: translateX(-3px);
 }
 
-.header-left i {
-  font-size: 18px;
+/* --- SỬA LỖI LOGO: Xóa nền đỏ, Reset kích thước --- */
+.page.login-page .header-right .logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  
+  /* Xóa style của file khác đè vào */
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
 }
 
-.header-right {
-  display: flex;
-  align-items: center;
+/* Khung chứa ảnh logo */
+.page.login-page .header-right .logo-icon {
+  width: auto !important;
+  height: 50px !important; /* Chiều cao cố định cho đẹp header */
+  
+  background: transparent !important; /* Xóa nền đỏ */
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+  overflow: visible !important; /* Cho phép hiện hết ảnh */
+  
+  display: flex !important;
+  align-items: center !important;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+/* Ảnh logo */
+.page.login-page .header-right .logo-icon img {
+  width: auto !important;
+  height: 100% !important; /* Full chiều cao 50px */
+  object-fit: contain !important; /* Giữ tỉ lệ ảnh */
+  display: block !important;
 }
 
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+/* Chữ thương hiệu (CAT BRACELET) */
+.page.login-page .header-right .logo-text {
+  display: block !important;
+  color: #1f2937 !important; /* Màu xám đen (thay vì trắng/đỏ) */
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  white-space: nowrap !important;
+}
+/* ------------------------------------------------ */
+
+
+/* 4. NỘI DUNG CHÍNH */
+.page.login-page .main-content {
+  padding: 32px 32px 40px;
 }
 
-.logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.logo-text {
-  color: #dc2626;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* Main Content */
-.main-content {
-  padding: 40px 20px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-/* Welcome Section */
-.welcome-section {
+.page.login-page .welcome-section {
   text-align: center;
   margin-bottom: 32px;
-  padding-top: 20px;
+  padding-top: 8px;
 }
 
-.welcome-title {
-  font-size: 32px;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 12px;
+.page.login-page .welcome-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 
-.welcome-subtitle {
-  font-size: 16px;
+.page.login-page .welcome-subtitle {
+  font-size: 15px;
   color: #6b7280;
   font-weight: 400;
 }
 
-/* Input Section */
-.input-section {
+/* 5. INPUT FORM */
+.page.login-page .input-section {
   margin-bottom: 20px;
 }
 
-.input-wrapper {
+.page.login-page .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  padding: 16px;
-  transition: all 0.2s;
+  background-color: #f3f4f6;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 14px 16px;
+  transition: all 0.2s ease;
 }
 
-.input-wrapper:focus-within {
+.page.login-page .input-wrapper:focus-within {
   border-color: #dc2626;
   background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
 }
 
-.input-icon {
+.page.login-page .input-icon {
   color: #9ca3af;
   font-size: 18px;
-  margin-right: 12px;
+  margin-right: 14px;
 }
 
-.form-input {
+.page.login-page .form-input {
   flex: 1;
   border: none;
   outline: none;
   background: transparent;
   font-size: 16px;
   color: #1f2937;
+  font-weight: 500;
 }
 
-.form-input::placeholder {
+.page.login-page .form-input::placeholder {
   color: #9ca3af;
 }
 
-/* Login Form */
-.login-form {
-  margin-bottom: 32px;
-}
-
-.error-message {
-  display: block;
-  background-color: #fee2e2;
-  color: #dc2626;
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  font-size: 14px;
-  text-align: center;
-  border: 1px solid #fecaca;
-}
-
-.login-btn {
+/* 6. NÚT ĐĂNG NHẬP */
+.page.login-page .login-btn {
   width: 100%;
-  padding: 16px 24px;
+  padding: 18px 24px;
   border: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 600;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-  margin-top: 8px;
+  box-shadow: 0 8px 20px -6px rgba(220, 38, 38, 0.5);
+  margin-top: 12px;
 }
 
-.login-btn:hover {
+.page.login-page .login-btn:hover {
   background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px -8px rgba(220, 38, 38, 0.6);
 }
 
-.login-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+.page.login-page .login-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
 }
 
-/* Benefits Section */
-.benefits-section {
-  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-  border-radius: 16px;
-  padding: 24px;
-  border: 1px solid #fecaca;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
-}
-
-.benefits-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1f2937;
+.page.login-page .error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fef2f2;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 12px;
   margin-bottom: 20px;
-  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #fee2e2;
+  animation: shake 0.4s ease-in-out;
 }
 
-.benefits-list {
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* 7. PHẦN LỢI ÍCH (BENEFITS) */
+.page.login-page .benefits-section {
+  background: rgba(254, 242, 242, 0.5);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px dashed #fecaca;
+  margin-top: 32px;
+}
+
+.page.login-page .benefits-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #991b1b;
+  margin-bottom: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.page.login-page .benefits-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-}
-
-.benefit-item {
-  display: flex;
-  align-items: flex-start;
   gap: 12px;
 }
 
-.benefit-icon {
+.page.login-page .benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.page.login-page .benefit-icon {
   color: #dc2626;
-  font-size: 8px;
-  margin-top: 6px;
+  font-size: 6px;
+  margin-top: 7px;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
-.benefit-icon i {
-  font-size: 8px;
-}
-
-.benefit-text {
-  font-size: 15px;
-  color: #374151;
+.page.login-page .benefit-text {
+  font-size: 13px;
+  color: #4b5563;
   line-height: 1.5;
   flex: 1;
 }
 
-/* Responsive Design */
-@media (min-width: 768px) {
-  .container {
-    max-width: 500px;
-    margin: 40px auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-  }
-
-  .main-content {
-    padding: 50px 40px;
-  }
-
-  .welcome-title {
-    font-size: 36px;
-  }
-}
-
+/* RESPONSIVE */
 @media (max-width: 480px) {
-  .welcome-title {
-    font-size: 28px;
+  .page.login-page .container {
+    border-radius: 0; /* Full màn hình trên mobile */
+    min-height: 100vh;
+  }
+  
+  .page.login-page {
+    padding: 0;
+    align-items: flex-start;
+    background: #fff; /* Nền trắng trên mobile cho nhẹ */
   }
 
-  .main-content {
-    padding: 30px 16px;
-  }
-
-  .benefits-section {
-    padding: 20px;
+  .page.login-page .header {
+    background: #fff;
   }
 }
