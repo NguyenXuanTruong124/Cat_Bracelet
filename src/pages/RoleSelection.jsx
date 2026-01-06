@@ -8,7 +8,7 @@ function RoleSelection() {
 
   const handleContinue = () => {
     if (selectedRole === 'admin') navigate('/admin');
-    else if (selectedRole === 'staff') navigate('/staff');
+    else if (selectedRole === 'staff') navigate('/staff/dashboard'); 
     else navigate('/customer');
   };
 
