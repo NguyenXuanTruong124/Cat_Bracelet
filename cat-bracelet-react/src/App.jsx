@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
+import Login from './pages/UI_Login';
 import RoleSelection from './pages/RoleSelection';
 import Staff from './pages/Staff';
 import Customer from './pages/Customer';
