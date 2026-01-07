@@ -4,6 +4,11 @@ import RoleSelection from './pages/RoleSelection';
 
 import Customer from './pages/Customer';
 import Admin from './pages/Admin';
+import About from './pages/About';
+import Shop from './pages/Shop';
+import Checkout from './pages/Checkout';
+import { CartProvider } from './context/CartContext';
+import CartDrawer from './components/CartDrawer';
 
 import StaffDashboard from './pages/Staff/StaffDashboard.jsx';
 import StaffProducts from './pages/Staff/StaffProducts.jsx';
@@ -12,6 +17,7 @@ import StaffCustomers from './pages/Staff/StaffCustomers.jsx';
 
 function App() {
   return (
+<<<<<<< HEAD
     <Routes>
       <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<Login />} />
@@ -28,6 +34,23 @@ function App() {
 
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
+=======
+    <CartProvider>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/role" element={<RoleSelection />} />
+        <Route path="/staff" element={<Staff />} />
+        <Route path="/customer" element={<Customer />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+      <CartDrawer />
+    </CartProvider>
+>>>>>>> UI_Customer
   );
 }
 

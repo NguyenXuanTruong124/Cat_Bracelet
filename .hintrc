@@ -1,5 +1,17 @@
 {
   "extends": [
     "development"
-  ]
+  ],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "min-height: auto",
+          "backdrop-filter",
+          "user-select"
+        ]
+      }
+    ]
+  }
 }

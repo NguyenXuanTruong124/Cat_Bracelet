@@ -18,7 +18,7 @@
 /* 2. HIỆU ỨNG KÍNH MỜ (GLASSMORPHISM) */
 .page.login-page .container {
   width: 100%;
-  max-width: 460px;
+  max-width: 500px;
   margin: 0 auto;
   
   /* Tạo hiệu ứng kính */
